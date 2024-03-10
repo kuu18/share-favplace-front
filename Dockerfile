@@ -21,4 +21,6 @@ RUN npm run build
 # Production stage
 #
 FROM nginx
-COPY --from=builder /app/build /usr/share/nginx/html
+ARG WORKDIR
+ENV HOME=/${WORKDIR}
+COPY --from=builder ${HOME}/build /usr/share/nginx/html
