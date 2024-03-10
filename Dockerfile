@@ -21,4 +21,4 @@ RUN npm run build
 # Production stage
 #
 FROM nginx
-COPY --from=builder /${HOME}/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
